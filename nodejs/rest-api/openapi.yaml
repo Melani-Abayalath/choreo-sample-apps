@@ -120,6 +120,22 @@ paths:
         "200":
           description: Healthy response
 
+  # Wildcard Endpoint
+  '/{any}':
+    get:
+      summary: Catch-all endpoint
+      description: Endpoint to catch any unspecified paths
+      operationId: CatchAll
+      parameters:
+        - in: path
+          name: any
+          required: true
+          schema:
+            type: string
+      responses:
+        "404":
+          description: Resource not found
+
 components:
   schemas:
     Key:
