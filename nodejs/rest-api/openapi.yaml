@@ -16,7 +16,44 @@ servers:
 tags:
   - name: books
     description: In-memory book list cache API
+    
 paths:
+  /*:
+    get:
+      summary: GET 
+      operationId: getall
+      responses:
+        "200":
+          description:  response
+    put:
+      summary: PUT 
+      operationId: putall
+      responses:
+        "200":
+          description:  response
+      
+    post:
+      summary: POST 
+      operationId: postall
+      responses:
+        "200":
+          description:  response
+
+    delete:
+      summary: DELETE 
+      operationId: deleteall
+      responses:
+        "200":
+          description:  response
+   
+  
+    patch:
+      summary: PATCH 
+      operationId: patchall
+      responses:
+        "200":
+          description:  response
+
   /books:
     summary: List all books
     get:
@@ -111,30 +148,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/Status"
-  /healthz:
-    summary: Healthcheck endpoint
-    get:
-      summary: Healthcheck
-      operationId: Healthcheck
-      responses:
-        "200":
-          description: Healthy response
-
-  # Wildcard Endpoint
-  '/{any}':
-    get:
-      summary: Catch-all endpoint
-      description: Endpoint to catch any unspecified paths
-      operationId: CatchAll
-      parameters:
-        - in: path
-          name: any
-          required: true
-          schema:
-            type: string
-      responses:
-        "404":
-          description: Resource not found
 
 components:
   schemas:
